@@ -1,0 +1,752 @@
+[0mone-time setup: preprocessing input text file data/en-fr/en.txt...[0m	
+[0mloading text file...[0m	
+[0mdata/en-fr/en.txt[0m	
+[0mcreating vocabulary mapping...[0m	
+[0mputting data into tensor...[0m	
+[0mhow many sentences[0m	[0;36m250[0m	
+[0mmax_sen_lens[0m	[0;36m114[0m	
+[0msaving data/en-fr/vocab_en.t7[0m	
+[0msaving data/en-fr/data_en.t7[0m	
+[0msaving data/en-fr/map_en.t7[0m	
+[0mone-time setup: preprocessing output text file data/en-fr/en.txt...[0m	
+[0mloading text file...[0m	
+[0mdata/en-fr/fr.txt[0m	
+[0mcreating vocabulary mapping...[0m	
+[0mputting data into tensor...[0m	
+[0mhow many sentences[0m	[0;36m250[0m	
+[0mmax_sen_lens[0m	[0;36m118[0m	
+[0msaving data/en-fr/vocab_fr.t7[0m	
+[0msaving data/en-fr/data_fr.t7[0m	
+[0msaving data/en-fr/map_fr.t7[0m	
+[0mloading data files...[0m	
+[0mself.vocab_size_en[0m	[0;36m1504[0m	
+[0mself.vocab_size_fr[0m	[0;36m1744[0m	
+[0mreshaping tensor...[0m	
+[0mdata load done. Number of data batches in train: 237, val: 13, test: 0[0m	
+[0mvocab size en: 1504[0m	
+[0mvocab size fr: 1744[0m	
+[0mcreating an gru_cond with 1 layers[0m	
+[0mset up model successively[0m	
+[0mnumber of parameters in the gru model: 3536336[0m	
+[0mrnn_cond[0m	
+[0mcloning decoder[0m	
+[0mrnn[0m	
+[0mcloning encoder[0m	
+[0mcriterion[0m	
+[0mcloning decoder[0m	
+[0mfinish encoding![0m	
+[0mfinish decoding![0m	
+[0;36m0.18937091522322[0m	
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mdrnn[0m	{
+  1 : [0;31mDoubleTensor - size: 1x256[0m
+  2 : [0;31mDoubleTensor - size: 1x256[0m
+  3 : [0;31mDoubleTensor - size: 1x256[0m
+  4 : [0;31mDoubleTensor - size: 1x1744[0m
+}
+[0mfinish bp decoding![0m	
