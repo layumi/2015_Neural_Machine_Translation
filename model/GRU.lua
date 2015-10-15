@@ -1,12 +1,24 @@
 
 local GRU = {}
 
+<<<<<<< HEAD
 function GRU.gru(input_size, rnn_size, n, dropout)
   dropout = dropout or 0 
   -- claim inputs
   local inputs = {}
   table.insert(inputs, nn.Identity()()) -- x
   table.insert(inputs, nn.Identity()()) -- mask
+=======
+--[[
+Creates one timestep of one GRU
+Paper reference: http://arxiv.org/pdf/1412.3555v1.pdf
+]]--
+function GRU.gru(input_size, rnn_size, n, dropout)
+  dropout = dropout or 0 
+  -- there are n+1 inputs (hiddens on each layer and x)
+  local inputs = {}
+  table.insert(inputs, nn.Identity()()) -- x
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
   for L = 1,n do
     table.insert(inputs, nn.Identity()()) -- prev_h[L]
   end
@@ -19,9 +31,15 @@ function GRU.gru(input_size, rnn_size, n, dropout)
 
   local x, input_size_L
   local outputs = {}
+<<<<<<< HEAD
   local mask = inputs[2]
   for L = 1,n do
     local prev_h = inputs[L+2]
+=======
+  for L = 1,n do
+
+    local prev_h = inputs[L+1]
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     -- the input to this layer  embeding!!
     if L == 1 then 
       x = OneHot(input_size)(inputs[1])
@@ -43,6 +61,7 @@ function GRU.gru(input_size, rnn_size, n, dropout)
     -- compute new interpolated hidden state, based on the update gate
     local zh = nn.CMulTable()({update_gate, hidden_candidate})
     local zhm1 = nn.CMulTable()({nn.AddConstant(1,false)(nn.MulConstant(-1,false)(update_gate)), prev_h})
+<<<<<<< HEAD
     local next_h_w = nn.CAddTable()({zh, zhm1})
     local h1 = nn.CMulTable()({mask, next_h_w})
     local h2 = nn.CMulTable()({nn.AddConstant(1,false)(nn.MulConstant(-1,false)(mask)), prev_h})
@@ -56,6 +75,21 @@ function GRU.gru(input_size, rnn_size, n, dropout)
  -- local logsoft = nn.LogSoftMax()(proj)
  -- table.insert(outputs, logsoft)
   
+=======
+    local next_h = nn.CAddTable()({zh, zhm1})
+
+    table.insert(outputs, next_h)
+  end
+-- set up the decoder
+  
+  local top_h = outputs[#outputs]
+  if dropout > 0 then top_h = nn.Dropout(dropout)(top_h) end
+
+--  local proj = nn.Linear(rnn_size, input_size)(top_h)
+--  local logsoft = nn.LogSoftMax()(proj)
+--  table.insert(outputs, logsoft)
+
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
   return nn.gModule(inputs, outputs)
 end
 

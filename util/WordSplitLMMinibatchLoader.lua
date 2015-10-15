@@ -59,8 +59,12 @@ function WordSplitLMMinibatchLoader.create(data_dir, batch_size, split_fractions
     self.vocab_mapping_en = torch.load(vocab_en_file)
     local data_fr = torch.load(tensor_fr_file)
     self.vocab_mapping_fr = torch.load(vocab_fr_file)
+<<<<<<< HEAD
     local mask_en = torch.load(map_en_file)
     local mask_fr = torch.load(map_fr_file)
+=======
+
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     -- count vocab
     self.vocab_size_en = 0
     for _ in pairs(self.vocab_mapping_en) do 
@@ -79,8 +83,11 @@ function WordSplitLMMinibatchLoader.create(data_dir, batch_size, split_fractions
     ydata:sub(1,-2):copy(data_fr:sub(2,-1))
     ydata[-1] = data_fr[1]
     self.x1_batches = data_en:view(batch_size, -1):split(en_max_len, 2)  -- #rows = #batches
+<<<<<<< HEAD
     self.mask_en = mask_en:view(batch_size, -1):split(en_max_len, 2)
     self.mask_fr = mask_fr:view(batch_size, -1):split(fr_max_len, 2)
+=======
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     self.nbatches = #self.x1_batches
     self.x2_batches = data_fr:view(batch_size, -1):split(fr_max_len, 2)  -- #rows = #batches
     self.y_batches = data_fr:view(batch_size, -1):split(fr_max_len, 2)  --
@@ -131,7 +138,11 @@ function WordSplitLMMinibatchLoader:next_batch(split_index)
     local ix = self.batch_ix[split_index]
     if split_index == 2 then ix = ix + self.ntrain end -- offset by train set size
     if split_index == 3 then ix = ix + self.ntrain + self.nval end -- offset by train + val
+<<<<<<< HEAD
     return self.x1_batches[ix], self.x2_batches[ix],self.mask_en[ix],self.mask_fr[ix],self.y_batches[ix]
+=======
+    return self.x1_batches[ix], self.x2_batches[ix], self.y_batches[ix]
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
 end
 
 -- *** STATIC method ***
@@ -181,7 +192,11 @@ function WordSplitLMMinibatchLoader.text_to_tensor(in_textfile, out_vocabfile, o
     -- construct a tensor with all the data
     print('putting data into tensor...')
     local data = torch.IntTensor(sentence_counter,max_str_len+1):zero()+1 -- store it into 2D first, then rearrange
+<<<<<<< HEAD
     local map = torch.IntTensor(sentence_counter,max_str_len+1) :zero()
+=======
+    local map = torch.IntTensor(sentence_counter,max_str_len+1) :zero()+1
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     print('how many sentences',sentence_counter)
     print('max_sen_lens',max_str_len)
     f = io.open(in_textfile, "r")

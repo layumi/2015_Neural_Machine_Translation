@@ -1,6 +1,7 @@
 
 local GRU_cond = {}
 
+<<<<<<< HEAD
 function GRU_cond.gru(input_size, rnn_size, n, dropout)
   dropout = dropout or 0 
 
@@ -8,6 +9,18 @@ function GRU_cond.gru(input_size, rnn_size, n, dropout)
   --gru-cond
   table.insert(inputs, nn.Identity()()) -- x
   table.insert(inputs, nn.Identity()()) -- mask
+=======
+--[[
+Creates one timestep of one GRU
+Paper reference: http://arxiv.org/pdf/1412.3555v1.pdf
+]]--
+function GRU_cond.gru(input_size, rnn_size, n, dropout)
+  dropout = dropout or 0 
+  -- there are n+1 inputs (hiddens on each layer and x)
+  local inputs = {}
+  --gru-cond
+  table.insert(inputs, nn.Identity()()) -- x
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
   table.insert(inputs, nn.Identity()()) -- context
   for L = 1,n do
     table.insert(inputs, nn.Identity()()) -- prev_h[L]
@@ -24,9 +37,14 @@ function GRU_cond.gru(input_size, rnn_size, n, dropout)
   local outputs = {}
 
   for L = 1,n do
+<<<<<<< HEAD
     local prev_h = inputs[L+3]
     local context = inputs[3]
     local mask = inputs[2]
+=======
+    local prev_h = inputs[L+2]
+    local context = inputs[L+1]
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     -- the input to this layer
     if L == 1 then 
       x = OneHot(input_size)(inputs[1])
@@ -57,10 +75,15 @@ function GRU_cond.gru(input_size, rnn_size, n, dropout)
     -- compute new interpolated hidden state, based on the update gate
     local zh = nn.CMulTable()({update_gate, hidden_candidate})
     local zhm1 = nn.CMulTable()({nn.AddConstant(1,false)(nn.MulConstant(-1,false)(update_gate)), prev_h})
+<<<<<<< HEAD
     local next_h_w = nn.CAddTable()({zh, zhm1})
     local h1 = nn.CMulTable()({mask, next_h_w})
     local h2 = nn.CMulTable()({nn.AddConstant(1,false)(nn.MulConstant(-1,false)(mask)), prev_h})
     local next_h = nn.CAddTable()({h1,h2})
+=======
+    local next_h = nn.CAddTable()({zh, zhm1})
+
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     table.insert(outputs, next_h)
   end
 -- set up the decoder

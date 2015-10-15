@@ -1,6 +1,7 @@
 
 local GRU_cond = {}
 
+<<<<<<< HEAD
 function GRU_cond.gru(input_size, rnn_size, n, dropout)
   dropout = dropout or 0 
 
@@ -8,6 +9,18 @@ function GRU_cond.gru(input_size, rnn_size, n, dropout)
   --gru-cond
   table.insert(inputs, nn.Identity()()) -- x
   table.insert(inputs, nn.Identity()()) -- mask
+=======
+--[[
+Creates one timestep of one GRU
+Paper reference: http://arxiv.org/pdf/1412.3555v1.pdf
+]]--
+function GRU_cond.gru(input_size, rnn_size, n, dropout)
+  dropout = dropout or 0 
+  -- there are n+1 inputs (hiddens on each layer and x)
+  local inputs = {}
+  --gru-cond
+  table.insert(inputs, nn.Identity()()) -- x
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
   table.insert(inputs, nn.Identity()()) -- context
   for L = 1,n do
     table.insert(inputs, nn.Identity()()) -- prev_h[L]
@@ -17,16 +30,25 @@ function GRU_cond.gru(input_size, rnn_size, n, dropout)
     local i2h = nn.Linear(insize, rnn_size)(xv)
     local h2h = nn.Linear(rnn_size, rnn_size)(hv)
     local c2h = nn.Linear(rnn_size, rnn_size)(c)  --should be modified later
+<<<<<<< HEAD
     return nn.CAddTable()({i2h, h2h ,c2h})
+=======
+    return nn.CAddTable()(nn.CAddTable()({i2h, h2h}),c2h)  --i2h+h2h+c2h
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
   end
 
   local x, input_size_L
   local outputs = {}
 
   for L = 1,n do
+<<<<<<< HEAD
     local prev_h = inputs[L+3]
     local context = inputs[3]
     local mask = inputs[2]
+=======
+    local prev_h = inputs[L+2]
+    local context = inputs[L+1]
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     -- the input to this layer
     if L == 1 then 
       x = OneHot(input_size)(inputs[1])

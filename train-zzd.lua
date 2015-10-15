@@ -21,7 +21,11 @@ cmd:text('Options')
 -- data
 cmd:option('-data_dir','data/tinyshakespeare','data directory. Should contain the file input.txt with input data')
 -- model params
+<<<<<<< HEAD
 cmd:option('-rnn_size', 256, 'size of LSTM internal state')
+=======
+cmd:option('-rnn_size', 1024, 'size of LSTM internal state')
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
 cmd:option('-num_layers', 1, 'number of layers in the LSTM')
 cmd:option('-model', 'gru_cond', 'lstm,gru,rnn or gru_cond')
 -- optimization
@@ -129,7 +133,11 @@ else
         protos.rnn = LSTM.lstm(vocab_size, opt.rnn_size, opt.num_layers, opt.dropout)
     elseif opt.model == 'gru_cond' then
         protos.rnn = GRU.gru(vocab_size_en, opt.rnn_size, opt.num_layers,opt.dropout) 
+<<<<<<< HEAD
         protos.rnn_cond = GRU_cond.gru(vocab_size_fr, opt.rnn_size, opt.num_layers, opt.dropout) 
+=======
+        protos.rnn_cond = GRU_cond.gru(vocab_size_fr, opt.rnn_size, opt.num_layers, opt.dropout)  -- my model rnn_size=1024
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
         print('set up model successively')
     elseif opt.model == 'rnn' then
         protos.rnn = RNN.rnn(vocab_size, opt.rnn_size, opt.num_layers, opt.dropout)
@@ -158,15 +166,23 @@ if opt.gpuid >= 0 and opt.opencl == 1 then
 end
 
 -- put the above things into one flattened parameters tensor
+<<<<<<< HEAD
 params, grad_params = model_utils.combine_all_parameters(protos.rnn,protos.rnn_cond)
+=======
+params, grad_params = model_utils.combine_all_parameters(protos.rnn)
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
 
 -- initialization
 if do_random_init then
     params:uniform(-0.08, 0.08) -- small uniform numbers
 end
 
+<<<<<<< HEAD
 print('number of parameters in the gru model: ' .. params:nElement())
 
+=======
+print('number of parameters in the model: ' .. params:nElement())
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
 --
 
 -- make a bunch of clones after flattening, as that reallocates memory
@@ -194,6 +210,7 @@ function eval_split(split_index, max_batches)
     
     for i = 1,n do -- iterate over batches in the split
         -- fetch a batch
+<<<<<<< HEAD
         local x1, y = loader:next_batch(split_index)
         if opt.gpuid >= 0 and opt.opencl == 0 then -- ship the input arrays to GPU
             -- have to convert to float because integers can't be cuda()'d
@@ -202,24 +219,45 @@ function eval_split(split_index, max_batches)
         end
         if opt.gpuid >= 0 and opt.opencl == 1 then -- ship the input arrays to GPU
             x1 = x1:cl()
+=======
+        local x, y = loader:next_batch(split_index)
+        if opt.gpuid >= 0 and opt.opencl == 0 then -- ship the input arrays to GPU
+            -- have to convert to float because integers can't be cuda()'d
+            x = x:float():cuda()
+            y = y:float():cuda()
+        end
+        if opt.gpuid >= 0 and opt.opencl == 1 then -- ship the input arrays to GPU
+            x = x:cl()
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
             y = y:cl()
         end
         -- forward pass
         for t=1,opt.seq_length1 do
             clones.rnn[t]:training() -- make sure we are in correct mode (this is cheap, sets flag)
+<<<<<<< HEAD
             local lst = clones.rnn[t]:forward{x1[{{}, t}],mask1, unpack(rnn_state[t-1])} 
+=======
+            local lst = clones.rnn[t]:forward{x1[{{}, t}], unpack(rnn_state[t-1])} 
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
             rnn_state[t] = {}
             for i=1,#init_state do table.insert(rnn_state[t], lst[i]) end -- extract the state, without output
             context = lst
         end
+<<<<<<< HEAD
         --print(context)
+=======
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
         for t=1,opt.seq_length2 do
             clones.rnn_cond[t]:training() 
             if t==1 then 
                 tmp=1 
             else tmp = predictions[t-1]
             end
+<<<<<<< HEAD
             local lst2 = clones.rnn_cond[t]:forward{tmp,context,mask2,unpack(rnn_state_cond[t-1])}
+=======
+            local lst2 = clones.rnn_cond[t]:forward{tmp,context, unpack(rnn_state_cond[t-1])}
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
             rnn_state_cond[t] = {}
             for i=1,#init_state do table.insert(rnn_state_cond[t], lst2[i]) end -- extract the state, without output
             predictions[t] = lst2[#lst2] -- last element is the prediction
@@ -244,7 +282,11 @@ function feval(x)
     grad_params:zero()
 
     ------------------ get minibatch -------------------
+<<<<<<< HEAD
     local x1,x2,mask1,mask2,y = loader:next_batch(1)
+=======
+    local x1,x2, y = loader:next_batch(1)
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     if opt.gpuid >= 0 and opt.opencl == 0 then -- ship the input arrays to GPU
         -- have to convert to float because integers can't be cuda()'d
         x1 = x1:float():cuda()
@@ -261,6 +303,7 @@ function feval(x)
     local rnn_state_cond = {[0] = init_state_global_cond}
     local predictions = {}           -- softmax outputs
     local loss = 0
+<<<<<<< HEAD
     mask1_t={}
     mask2_t={}
     predict_word={}
@@ -310,10 +353,58 @@ function feval(x)
         drnn_state2[t-1] = {}
         for k,v in pairs(dlst2) do
             if k > 1 then -- mask 1  context 2
+=======
+    for t=1,opt.seq_length1 do
+        clones.rnn[t]:training() -- make sure we are in correct mode (this is cheap, sets flag)
+        local lst = clones.rnn[t]:forward{x1[{{}, t}], unpack(rnn_state[t-1])} 
+        rnn_state[t] = {}
+        for i=1,#init_state do table.insert(rnn_state[t], lst[i]) end -- extract the state, without output
+        context = rnn_state[t]
+    end
+    --print(context)
+    print('finish encoding!')
+    for t=1,opt.seq_length2 do
+        clones.rnn_cond[t]:training() 
+        --if t==1 then 
+                --tmp = torch.IntTensor(1):zero()+1 
+       -- else tmp = prev_word
+            -- print('prev_word:',prev_word)
+       -- end
+        print('hehe')
+        local lst2 = clones.rnn_cond[t]:forward{torch.IntTensor(1):zero()+1 ,context,unpack(rnn_state_cond[t-1])}
+        rnn_state_cond[t] = {}
+        for i=1,#init_state do table.insert(rnn_state_cond[t], lst2[i]) end -- extract the state, without output
+        predictions[t] = lst2[#lst2] -- last element is the prediction
+        --print(predictions[t])
+        local probs = torch.exp(predictions[t]):squeeze()
+        probs:div(torch.sum(probs)) -- renormalize so probs sum to one
+        prev_word = torch.multinomial(probs:float(), 1):resize(1):float()
+        loss = loss + clones.criterion[t]:forward(predictions[t], y[{{}, t}])
+    end
+    print('finish decoding!')
+    loss = loss / opt.seq_length2
+    ------------------ backward pass -------------------
+    -- initialize gradient at time t to be zeros (there's no influence from future)
+    local drnn_state2 = {[opt.seq_length2] = clone_list(init_state, true)} -- true also zeros the clones
+    local drnn_state1 = {[opt.seq_length1] = clone_list(init_state, true)} -- true also zeros the clones
+    for t=opt.seq_length2,1,-1 do
+        -- backprop through loss, and softmax/linear
+        local doutput_t = clones.criterion[t]:backward(predictions[t], y[{{}, t}])
+        table.insert(drnn_state2[t], doutput_t)
+        print("haha")
+        local dlst = clones.rnn_cond[t]:backward({x1[{{}, t}]}, drnn_state2[t])
+        drnn_state2[t-1] = {}
+        for k,v in pairs(dlst) do
+            if k > 1 then -- k == 1 is gradient on x, which we dont need
+                -- k==2 is gradient on context
+                -- note we do k-1 because first item is dembeddings, and then follow the 
+                -- derivatives of the state, starting at index 2. I know...
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
                 drnn_state2[t-1][k-1] = v
             end
         end
     end
+<<<<<<< HEAD
     --graph.dot(clones.rnn_cond.fg, 'rnn_cond')
     print('finish bp decoding!')
    for t=opt.seq_length2,1,-1 do
@@ -323,6 +414,26 @@ function feval(x)
         end
     end
     print('Congratulation! Finish bp encoding!')
+=======
+    print('finish bp decoding!')
+--[[
+    for t=opt.seq_length1,1,-1 do
+        -- backprop through loss, and softmax/linear
+        local doutput_t = clones.criterion[t]:backward(predictions[t], y[{{}, t}])
+        table.insert(drnn_state1[t], doutput_t)
+        local dlst = clones.rnn[t]:backward({x1[{{}, t}], unpack(rnn_state[t-1])}, drnn_state1[t])
+        drnn_state1[t-1] = {}
+        for k,v in pairs(dlst) do
+            if k > 1 then -- k == 1 is gradient on x, which we dont need
+                -- note we do k-1 because first item is dembeddings, and then follow the 
+                -- derivatives of the state, starting at index 2. I know...
+                drnn_state1[t-1][k-1] = v
+            end
+        end
+    end
+    print('finish bp encoding!')
+--]]
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
     ------------------------ misc ----------------------
     -- transfer final state to initial state (BPTT)
     init_state_global = rnn_state[#rnn_state] -- NOTE: I don't think this needs to be a clone, right?
@@ -391,7 +502,11 @@ for i = 1, iterations do
         break -- halt
     end
     if loss0 == nil then loss0 = loss[1] end
+<<<<<<< HEAD
     if loss[1] > loss0 * 100 then
+=======
+    if loss[1] > loss0 * 3 then
+>>>>>>> c11a875ca3a70aa7c3030ab2f71f08b685e0e5bc
         print('loss is exploding, aborting.')
         break -- halt
     end
